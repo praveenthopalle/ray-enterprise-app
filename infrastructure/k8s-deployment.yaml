@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ray-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: ray-app
+  template:
+    metadata:
+      labels:
+        app: ray-app
+    spec:
+      containers:
+      - name: ray-app
+        image: ray-app:latest
+        ports:
+        - containerPort: 8000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ray-app-service
+spec:
+  type: LoadBalancer
+  selector:
+    app: ray-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8000

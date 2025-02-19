@@ -1,0 +1,4 @@
+ray[serve]
+torch
+pandas
+requests
