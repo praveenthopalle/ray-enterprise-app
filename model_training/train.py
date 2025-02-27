@@ -19,7 +19,7 @@ def train_model(batch_size):
     optimizer = optim.SGD(model.parameters(), lr=0.01)
     loss_fn = nn.MSELoss()
 
-    for _ in range(10):  # Simulate 10 epochs
+    for _ in range(62):  # Simulate 10 epochs
         x = torch.randn(batch_size, 10)
         y = torch.randn(batch_size, 1)
         pred = model(x)
